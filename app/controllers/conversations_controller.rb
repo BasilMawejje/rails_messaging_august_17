@@ -24,7 +24,8 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    if params[:body]
+    # binding.pry
+    if message_params[:body]
       current_user.reply_to_conversation(conversation, message_params[:body])
       flash[:notice] = 'Your reply message was successfully sent!'
       redirect_to conversation_path(conversation)
